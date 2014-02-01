@@ -26,47 +26,58 @@ public class LanguageAnalysis {
 	 * frequencies of frequency tables of different languages. Return the lowest
 	 * deviation the given text has with respect to the frequency tables.
 	 */
+	
+	/* NOTE: Examples/test cases are at bottom! */
+	
 	public static void main(String[] args) {
+		int testCaseCounter = 0;
+		System.out.println("Note: results in the format  'Expected Deviation | Calculated Deviation'");
+		//Test case 0
+		 String a0[] ={"a30b30c40","a20b40c40"};
+		 String b0[] ={"aa bbbb cccc"};
+		System.out.println("Test case "+ testCaseCounter++ + " = 0.0 | " + language(a0, b0));
+		
+		//Test case 1
+		 String a1[]={"a30b30c40","a20b40c40"};
+		 String b1[]={"aaa bbbb ccc"};
+		 System.out.println("Test case "+ testCaseCounter++ + " = 2.0 | " + language(a1, b1));
 
-		// String a[] = {"a01b98c01","a20b40c40"};
-		// String b[] =
-		// {"abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbc"};
+		 //test case 2
+		 String a2[] ={"a10b10c10d10e10f50"};
+		 String b2[]={"abcde g"};
+		 System.out.println("Test case "+ testCaseCounter++ + " = 10.8 | " + language(a2, b2));
+		 
+		 //test case 3
+		 String a3[] ={"a09b01c03d05e20g01h01i08l06n08o06r07s09t08u07x01"
+			 ,"a14b02c05d06e15g01h01i07l05n07o10r08s09t05u04x01"};
+		 String b3[] ={"this text is in english" 
+			 ,"the letter counts should be close to"
+			 ,"that in the table"};
+		 System.out.println("Test case "+ testCaseCounter++ + " = 130.6578 | " + language(a3, b3));
 
-		// String a[] ={"a10b10c10d10e10f50"};
-		// String b[] ={"abcde g"};
+		 //test case 4
+		 String a4[] = {"a09b01c03d05e20g01h01i08l06n08o06r07s09t08u07x01"
+			 ,"a14b02c05d06e15g01h01i07l05n07o10r08s09t05u04x01"};
+		 String b4[] = {"en esta es una oracion en castellano"
+			 ,"las ocurrencias de cada letra"
+			 ,"deberian ser cercanas a las dadas en la tabla"};
+		 System.out.println("Test case "+ testCaseCounter++ + " = 114.9472 | " + language(a4, b4));
 
-		// String a[] = {"a10b10c10d10e10f10g10h10i10j20"};
-		// String b[] ={"abcdef ghij"};
+		 //test case 5
+		 String a5[] = {"z99y01", "z99y01", "z99y01", "z99y01", "z99y01",
+		 "z99y01", "z99y01", "z99y01", "z99y01", "z99y01"};
+		 String b5[] = {"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+		 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"};
 
-		// String a[] ={"a30b30c40","a20b40c40"};
-		// String b[] ={"aa bbbb cccc"};
-
-		String a[] = { "a09b01c03d05e20g01h01i08l06n08o06r07s09t08u07x01",
-				"a14b02c05d06e15g01h01i07l05n07o10r08s09t05u04x01" };
-		String b[] = { "this text is in english",
-				"the letter counts should be close to", "that in the table" };
-
-		// String a[] = {"a09b01c03d05e20g01h01i08l06n08o06r07s09t08u07x01"
-		// ,"a14b02c05d06e15g01h01i07l05n07o10r08s09t05u04x01"};
-		//
-		// String b[] = {"en esta es una oracion en castellano"
-		// ,"las ocurrencias de cada letra"
-		// ,"deberian ser cercanas a las dadas en la tabla"};
-
-		// String a[] = {"z99y01", "z99y01", "z99y01", "z99y01", "z99y01",
-		// "z99y01", "z99y01", "z99y01", "z99y01", "z99y01"};
-		// String b[] = {"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-		// "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"};
-
-		System.out.println("The least deviation from a key set was: " +language(a, b));
+		 System.out.println("Test case "+ testCaseCounter++ + " = 495050.0 | " + language(a5, b5));
 	}
 
 	public static double language(String[] frequencies, String[] text) {
@@ -153,7 +164,6 @@ public class LanguageAnalysis {
 				while (itTwo.hasNext()) {
 					char ch = itTwo.next();
 					if (expectedFreqChart.get(ch) == null) {
-						System.out.println(charCountMap.get(ch));
 						tempSum += charCountMap.get(ch) * charCountMap.get(ch);
 					}
 				}
@@ -241,3 +251,82 @@ public class LanguageAnalysis {
 		return mapOfLanguageFreq;
 	}
 }
+
+/*Examples
+0)	
+    	
+{"a30b30c40","a20b40c40"}
+
+{"aa bbbb cccc"}
+
+Returns: 0.0
+
+The first table indicates that 30% of the letters are expected to be 'a', 30% to be 'b', and 40% to be 'c'. The second table indicates that 20% are expected to be 'a', 40% to be 'b', and 40% to be 'c'. We consider the text to have length 10, as blank spaces are ignored.
+
+With respect to the first table, there are 2 'a' where 3 were expected (a difference of 1), one more 'b' than expected (again a difference of 1) and as many 'c' as expected. The sum of the squares of those numbers gives a deviation of 2.0.
+
+As for the second table, the text matches expected counts exactly, so its deviation with respect to that language is 0.0.
+1)	
+    	
+
+{"a30b30c40","a20b40c40"}
+
+{"aaa bbbb ccc"}
+
+Returns: 2.0
+
+Here we use the same tables as in the previous example, but with a different text. The counts for 'b' and 'c' each differ by 1 from the expected counts in the first table, and the counts for 'a' and 'c' each differ by 1 from the expected counts in the second table. The text has a deviation of 2.0 with respect to both tables.
+2)	
+    	
+
+{"a10b10c10d10e10f50"}
+
+{"abcde g"}
+
+Returns: 10.8
+
+Here, each of the letters 'a' through 'e' is expected to make up 10% of the letters (0.6 letters). Each of those letters actually appears once, so the difference is 0.4, which becomes 0.16 when squared. 50% of the letters (3 letters) are expected to be 'f', but 'f' does not appear at all. The square of this difference is 9.0. No 'g's are expected to appear, but there is one in the text. This adds 1.0 to the deviation. The final deviation for this table is: 0.16+0.16+0.16+0.16+0.16+9.0+1.0=10.8.
+3)	
+    	
+
+{"a09b01c03d05e20g01h01i08l06n08o06r07s09t08u07x01"
+,"a14b02c05d06e15g01h01i07l05n07o10r08s09t05u04x01"}
+
+{"this text is in english" 
+,"the letter counts should be close to"
+,"that in the table"}
+
+Returns: 130.6578
+
+These two frequency tables correspond (roughly) to the frequencies found in the English and Spanish languages, respectively. The English passage, as expected, has a lower deviation in the first table than in the second one.
+4)	
+    	
+
+{"a09b01c03d05e20g01h01i08l06n08o06r07s09t08u07x01"
+,"a14b02c05d06e15g01h01i07l05n07o10r08s09t05u04x01"}
+
+{"en esta es una oracion en castellano"
+,"las ocurrencias de cada letra"
+,"deberian ser cercanas a las dadas en la tabla"}
+
+Returns: 114.9472
+
+The same tables again, but with Spanish passage. This time the second table, which correspond to frequencies in Spanish, gives the lowest deviation.
+5)	
+    	
+
+{"z99y01", "z99y01", "z99y01", "z99y01", "z99y01", 
+ "z99y01", "z99y01", "z99y01", "z99y01", "z99y01"}
+
+{"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+
+Returns: 495050.0*/
