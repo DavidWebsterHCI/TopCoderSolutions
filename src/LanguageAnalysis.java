@@ -26,6 +26,17 @@ public class LanguageAnalysis {
 	 * frequencies of frequency tables of different languages. Return the lowest
 	 * deviation the given text has with respect to the frequency tables.
 	 */
+	
+	/*Program output:
+	 * 
+	 * Note: results in the format  'Expected Deviation | Calculated Deviation'
+	 * Test case 0 = 0.0 | 0.0
+	 * Test case 1 = 2.0 | 2.0
+	 * Test case 2 = 10.8 | 10.8
+	 * Test case 3 = 130.6578 | 130.65779999999998
+	 * Test case 4 = 114.9472 | 114.94719999999998
+	 * Test case 5 = 495050.0 | 495050.0
+	 */
 
 	/* NOTE: Examples/test cases are at bottom! */
 
