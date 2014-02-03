@@ -79,6 +79,13 @@ public class FindClosingParens {
 		return returnVal;
 	}
 
+	/**
+	 * StartingParenLoc is a 0-based counting system.
+	 * 
+	 * @param s
+	 * @param startingParenLoc
+	 * @return
+	 */
 	public static int findClosingParenIteratively(String s, int startingParenLoc) {
 		// check for valid parens location
 		int openParenCounter = 1;
