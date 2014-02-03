@@ -29,9 +29,9 @@ public class AppleStock {
 	/**
 	 * This function returns an array of integers of size 3:
 	 * 
-	 * results[0] = the point one should have bought results[1] = the point at
-	 * which one should have sold results[2] = the largest profit that was
-	 * possible
+	 * results[0] = the point one should have bought 
+	 * results[1] = the point at which one should have sold 
+	 * results[2] = the largest profit that was possible
 	 * 
 	 * @param arr
 	 * @return results
