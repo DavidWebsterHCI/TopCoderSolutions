@@ -1,4 +1,4 @@
-package ReverseCharArrayInPlace;
+package ShortProblems;
 
 public class ReverseCharArrayInPlace {
 	/*

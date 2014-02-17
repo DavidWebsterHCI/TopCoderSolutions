@@ -1,4 +1,4 @@
-package FindClosingParens;
+package ShortProblems;
 
 public class FindClosingParens {
 

@@ -1,4 +1,4 @@
-package ApocalypseSomeday;
+package ShortProblems;
 
 public class ApocalypseSomeday {
 

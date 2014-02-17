@@ -1,4 +1,4 @@
-package AppleStock;
+package ShortProblems;
 
 public class AppleStock {
 

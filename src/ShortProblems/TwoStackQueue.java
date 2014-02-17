@@ -1,4 +1,4 @@
-package TwoStackQueue;
+package ShortProblems;
 
 import java.util.Stack;
 
